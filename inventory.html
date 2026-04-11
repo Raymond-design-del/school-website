@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FR SCHEFFER SCHOOL INVENTORY SYSTEM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>The Schoool's Inventory System</h1>
+  <nav>
+      <a href="index.html" class="btn">Home</a>
+      <a href="about.html" class="btn">About Us</a>
+      <a href="academics.html" class="btn">Academics</a>
+      <a href="gallery.html" class="btn">Gallery</a>
+      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="portal.html" class="btn">Student Portal</a>
+      <a href="inventory.html" class="btn">Inventory System</a>
+    </nav>
+    </header>
+<main>
+  <form id="inventoryForm">
+    <input style="color: aqua;" type="text" id="itemName" placeholder="Item Name" required />
+    <input type="text" id="category" placeholder="Category" required />
+    <input type="number" id="quantity" placeholder="Quantity" required />
+    <input type="text" id="location" placeholder="Location" required />
+    <select id="condition" required>
+      <option value="">Condition</option>
+      <option value="New">New</option>
+      <option value="Good">Good</option>
+      <option value="Fair">Fair</option>
+      <option value="Worn">Worn</option>
+    </select>
+    <button type="submit">Add Item</button>
+  </form>
+
+  <table id="inventoryTable">
+    <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Location</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- New items will be inserted here -->
+    </tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById("inventoryForm");
+    const tableBody = document.querySelector("#inventoryTable tbody");
+    let nextId = 1001;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const itemName = document.getElementById("itemName").value;
+      const category = document.getElementById("category").value;
+      const quantity = document.getElementById("quantity").value;
+      const location = document.getElementById("location").value;
+      const condition = document.getElementById("condition").value;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>INV-${nextId++}</td>
+        <td>${itemName}</td>
+        <td>${category}</td>
+        <td>${quantity}</td>
+        <td>${location}</td>
+        <td>${condition}</td>
+      `;
+
+      tableBody.appendChild(row);
+      form.reset();
+    });
+  </script>
+</main>
+</head>
+</body>
+<footer>
+  <p>&copy; <EM>DISCIPLINE IS THE ROAD TO SUCCESS</EM></P>
+</html>
