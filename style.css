@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif ;
+  margin: 0;
+  padding: 0;
+  background: #eedead;
+}
+
+header {
+  background: #65391b;
+  color: white;
+  padding: 5px;
+  margin: 0.10px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0px;
+  font-size: auto;
+}
+
+header:hover{
+  color:whitesmoke;
+}
+
+nav a {
+  color:white;
+  text-decoration: gold;
+  justify-content: center;
+  padding: auto;
+  font-size: auto;
+}
+
+nav a:hover{
+  color: gold;
+  box-shadow: black;
+  text-shadow: #eedead;
+}
+
+/* Button */
+.btn{
+ background-color:maroon;
+ color: #eedead;
+ padding: 15px;
+ margin: 3px;
+ margin-top: 10px;
+ border-radius: 20px;
+ display:-webkit-inline-flex;
+ font-weight: bold;
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn :hover{
+  background-color: #eedead;
+  transform: translateY(-1000px);
+  box-shadow: 0 60px 150px rgb(252, 252, 252);
+
+}
+
+main {
+  padding: 20px;
+  color:black;
+}
+
+.form{
+  color: red;
+}
+
+footer {
+  background:gold;
+  color: maroon;
+  text-align: center;
+  block-size: auto;
+  padding: 10px;
+  margin : 10px;
+  font-weight: bold;
+}
+
+footer :hover{
+  color: gold;
+  background: maroon;
+  box-decoration-break: clone;
+  padding: 10px;
+  margin: 10px;
+}
