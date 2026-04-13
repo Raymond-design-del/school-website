@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Login</title>
+</head>
+<body>
+
+<h2>Login</h2>
+
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+<button onclick="signup()">Sign Up</button>
+
+<p id="msg"></p>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey:  "AIzaSyBmnC2mqOt2KguVm9Cy8dUzfL3fAhmlIbE",
+    authDomain: "school-portal-7e016.firebaseapp.com",
+    projectId: "school-portal-7e016",
+    appId: "1:588178709968:web:79badaacdaa022ba076dd5"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.signup = function() {
+    createUserWithEmailAndPassword(
+      auth,
+      email.value,
+      password.value
+    ).then(() => {
+      msg.innerText = "Account created!";
+    }).catch(e => msg.innerText = e.message);
+  }
+
+  window.login = function() {
+    signInWithEmailAndPassword(
+      auth,
+      email.value,
+      password.value
+    ).then(() => {
+      msg.innerText = "Login successful!";
+      window.location.href = "dashboard.html";
+    }).catch(e => msg.innerText = e.message);
+  }
+</script>
+
+</body>
+</html>

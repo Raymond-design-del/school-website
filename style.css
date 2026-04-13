@@ -80,3 +80,91 @@ footer :hover{
   padding: 10px;
   margin: 10px;
 }
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #002147;
+  color: white;
+  padding: 15px;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1580582932707-520aed937b7b');
+  color: white;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+section {
+  animation: fadeIn 1s ease-in;
+}
+section {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #002147;
+  color: white;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a:hover {
+  border-bottom: 2px solid #ffcc00;
+}
+
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
