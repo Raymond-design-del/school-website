@@ -34,8 +34,3 @@
   }
 </script>
 <button onclick="logout()">Logout</button>
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    document.body.innerHTML += `<p>Welcome ${user.email}</p>`;
-  }
-});

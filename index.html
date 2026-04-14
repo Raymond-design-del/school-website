@@ -14,7 +14,7 @@
       <a href="academics.html" class="btn">Academics</a>
       <a href="gallery.html" class="btn">Gallery</a>
       <a href="contact.html" class="btn">Contact Us</a>
-      <a href="login.html" class="btn"> Portal</a>
+      <a href="login.html" class="portal-btn">Portal</a>
       <a href="inventory.html" class="btn">Inventory System</a>
     </nav>
      </header>
@@ -24,7 +24,7 @@
       <h2>Fr. Scheffer Boys' National Primary School</h2>
       <p><em>DISCIPLINE IS THE ROAD TO SUCCESS</em></p>
       <a href="login.html">
-        <button>Access Student & Admin Portal</button>
+        <button id="portalBtn">Access Portal</button>
       </a>
     </section>
     <h2>Mission Statement</h2>
@@ -73,5 +73,42 @@
                          2026
     </p>
   </footer>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmnC2mqOt2KguVm9Cy8dUzfL3fAhmlIbE",
+    authDomain: "school-portal-7e016.firebaseapp.com",
+    projectId: "school-portal-7e016",
+    appId: "1:588178709968:web:79badaacdaa022ba076dd5"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const btn = document.getElementById("portalBtn");
+
+//  CHECK LOGIN STATUS
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    btn.style.display = "none";
+    
+    // Get role
+    const docSnap = await getDoc(doc(db, "users", user.uid));
+
+    if (docSnap.exists()) {
+      const role = docSnap.data().role;
+
+      if (role === "admin") {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "student.html";
+      }
+    }
+  }
+});
+</script>
 </body>
 </html> 

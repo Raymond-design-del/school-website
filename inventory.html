@@ -14,7 +14,7 @@
       <a href="academics.html" class="btn">Academics</a>
       <a href="gallery.html" class="btn">Gallery</a>
       <a href="contact.html" class="btn">Contact Us</a>
-      <a href="portal.html" class="btn">Portal</a>
+      <a href="login.html" class="portal-btn">Portal</a>
       <a href="inventory.html" class="btn">Inventory System</a>
     </nav>
     </header>
@@ -50,37 +50,16 @@
     </tbody>
   </table>
 
-  <script>
-    const form = document.getElementById("inventoryForm");
-    const tableBody = document.querySelector("#inventoryTable tbody");
-    let nextId = 1001;
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const itemName = document.getElementById("itemName").value;
-      const category = document.getElementById("category").value;
-      const quantity = document.getElementById("quantity").value;
-      const location = document.getElementById("location").value;
-      const condition = document.getElementById("condition").value;
-
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>INV-${nextId++}</td>
-        <td>${itemName}</td>
-        <td>${category}</td>
-        <td>${quantity}</td>
-        <td>${location}</td>
-        <td>${condition}</td>
-      `;
-
-      tableBody.appendChild(row);
-      form.reset();
-    });
-  </script>
 </main>
-</head>
-</body>
+
+<script type="module">
+  import { protectInventoryPage } from "./main.js";
+
+  protectInventoryPage();
+</script>
+
 <footer>
-  <p>&copy; <EM>DISCIPLINE IS THE ROAD TO SUCCESS</EM></P>
+  <p>&copy; DISCIPLINE IS THE ROAD TO SUCCESS</p>
+</footer>
+</body>
 </html>

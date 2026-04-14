@@ -2,10 +2,17 @@
 <html>
 <head>
   <title>School Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<h2>Login</h2>
+<div class="portal-page">
+  <div class="portal-left">
+    <h1>Fr. Scheffer Boys' School</h1>
+    <p>Access your academic information, grades, and more.</p>
+  </div>
+<div class="login-container">
+<h2>School Portal Login</h2>
+<p>Students and Staff only</p>
 
 <input id="email" placeholder="Email">
 <input id="password" type="password" placeholder="Password">
@@ -14,43 +21,8 @@
 <button onclick="signup()">Sign Up</button>
 
 <p id="msg"></p>
+</div>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
-  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey:  "AIzaSyBmnC2mqOt2KguVm9Cy8dUzfL3fAhmlIbE",
-    authDomain: "school-portal-7e016.firebaseapp.com",
-    projectId: "school-portal-7e016",
-    appId: "1:588178709968:web:79badaacdaa022ba076dd5"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  window.signup = function() {
-    createUserWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value
-    ).then(() => {
-      msg.innerText = "Account created!";
-    }).catch(e => msg.innerText = e.message);
-  }
-
-  window.login = function() {
-    signInWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value
-    ).then(() => {
-      msg.innerText = "Login successful!";
-      window.location.href = "dashboard.html";
-    }).catch(e => msg.innerText = e.message);
-  }
-</script>
-
+<script type="module" src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Portal - FR Scheffer School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Student Portal</h1>
+    <nav>
+      <a href="index.html" class="btn">Home</a>
+      <a href="about.html" class="btn">About Us</a>
+      <a href="academics.html" class="btn">Academics</a>
+      <a href="gallery.html" class="btn">Gallery</a>
+      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="login.html" class="portal-btn">Portal</a>
+      <a href="inventory.html" class="btn">Inventory System</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Welcome to Your Student Portal</h2>
+    <div class="student-dashboard">
+      <div class="card">
+        <h3>Academic Performance</h3>
+        <p>View your grades and academic progress.</p>
+        <button>View Grades</button>
+      </div>
+      <div class="card">
+        <h3>Attendance</h3>
+        <p>Check your attendance record.</p>
+        <button>View Attendance</button>
+      </div>
+      <div class="card">
+        <h3>Assignments</h3>
+        <p>View and submit your assignments.</p>
+        <button>View Assignments</button>
+      </div>
+      <div class="card">
+        <h3>Profile</h3>
+        <p>Update your personal information.</p>
+        <button>Edit Profile</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; DISCIPLINE IS THE ROAD TO SUCCESS</p>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmnC2mqOt2KguVm9Cy8dUzfL3fAhmlIbE",
+      authDomain: "school-portal-7e016.firebaseapp.com",
+      projectId: "school-portal-7e016",
+      appId: "1:588178709968:web:79badaacdaa022ba076dd5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Protect student page
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
+    });
+
+    // Logout function
+    window.logout = function() {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+</body>
+</html>
