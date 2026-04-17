@@ -1,36 +1,80 @@
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { 
-    getAuth, 
-    onAuthStateChanged, 
-    signOut 
-  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FR Scheffer School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <h1 class="site-title">Dashboard</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="index.html">Home</a>
+        <a class="site-nav__link" href="about.html">About</a>
+        <a class="site-nav__link" href="academics.html">Academics</a>
+        <a class="site-nav__link" href="gallery.html">Gallery</a>
+        <a class="site-nav__link" href="contact.html">Contact</a>
+        <a class="site-nav__link" href="login.html">Portal</a>
+        <a class="site-nav__link" href="inventory.html">Inventory System</a>
+      </nav>
+    </div>
+  </header>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBmnC2mqOt2KguVm9Cy8dUzfL3fAhmlIbE",
-    authDomain: "school-portal-7e016.firebaseapp.com",
-    projectId: "school-portal-7e016",
-    appId: "1:588178709968:web:79badaacdaa022ba076dd5"
-  };
+  <main class="site-main">
+    <section class="hero" aria-labelledby="dashboard-title">
+      <div class="hero__content">
+        <h2 id="dashboard-title" class="hero__title">User Dashboard</h2>
+        <p class="hero__motto">Welcome to your personal dashboard</p>
+      </div>
+    </section>
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+    <section class="about">
+      <h2 class="section-title">Dashboard Features</h2>
+      <p class="section-text">Access your account information and manage your settings.</p>
+      <button onclick="logout()" class="btn">Logout</button>
+    </section>
+  </main>
 
-  //  PROTECT PAGE
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log("User is logged in:", user.email);
-    } else {
-      // NOT logged in → kick them out
-      window.location.href = "login.html";
-    }
-  });
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Fr. Scheffer Boys' School</p>
+  </footer>
 
-  // LOGOUT
-  window.logout = function() {
-    signOut(auth).then(() => {
-      window.location.href = "login.html";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { 
+      getAuth, 
+      onAuthStateChanged, 
+      signOut 
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmnC2mqOt2KguVm9Cy8dUzfL3fAhmlIbE",
+      authDomain: "school-portal-7e016.firebaseapp.com",
+      projectId: "school-portal-7e016",
+      appId: "1:588178709968:web:79badaacdaa022ba076dd5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    //  PROTECT PAGE
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("User is logged in:", user.email);
+      } else {
+        // NOT logged in → kick them out
+        window.location.href = "login.html";
+      }
     });
-  }
-</script>
-<button onclick="logout()">Logout</button>
+
+    // LOGOUT
+    window.logout = function() {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+</body>
+</html>
