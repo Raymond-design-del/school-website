@@ -1,351 +1,161 @@
-/* ========================================
-   FR. SCHEFFER SCHOOL - MODERN CSS
-   Blue & White Theme | Flexbox | Responsive
-   ======================================== */
-
-/* CSS Variables for Theme */
-:root {
-  --primary-blue: #1e40af;
-  --primary-dark: #1e3a8a;
-  --primary-light: #3b82f6;
-  --white: #ffffff;
-  --gray-light: #f8fafc;
-  --gray-medium: #e2e8f0;
-  --gray-dark: #64748b;
-  --text-dark: #1e293b;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f7fa;
+    color: #333;
 }
 
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/*NAVBAR*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #002147;
+    padding: 15px 30px;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-dark);
-  background-color: var(--white);
+.active{
+    border-bottom: 2px solid #00aaff;
 }
 
-/* ========================================
-   HEADER & NAVIGATION
-   ======================================== */
-.site-header {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-  color: var(--white);
-  padding: 0;
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.logo{
+    color: rgb(119, 73, 16);
+    font-weight: bold;
 }
 
-.site-header__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+.nav-links{
+    list-style: none;
+    display: flex;
 }
 
-.site-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.5px;
+.nav-links li{
+    margin-left: 25px;
 }
 
-/* Navigation */
-.site-nav {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+.nav-links a{
+    color:rgb(97, 53, 8);
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.site-nav__link {
-  color: var(--white);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  position: relative;
+.nav-links a:hover{
+    color: #00aaff;
 }
 
-.site-nav__link:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-}
-
-.site-nav__link[href="index.html"] {
-  background-color: rgba(255, 255, 255, 0.2);
-  font-weight: 600;
-}
-
-/* ========================================
-   MAIN CONTENT & SECTIONS
-   ======================================== */
-.site-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* Section spacing */
-section {
-  padding: 4rem 0;
-  border-bottom: 1px solid var(--gray-medium);
-}
-
-section:last-of-type {
-  border-bottom: none;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-weight: 700;
-}
-
-.section-text {
-  font-size: 1.125rem;
-  color: var(--gray-dark);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-
-/* ========================================
-   HERO SECTION
-   ======================================== */
+/*HERO SECTION*/
 .hero {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 50%, var(--primary-blue) 100%);
-  color: var(--white);
-  padding: 6rem 2rem;
-  text-align: center;
-  margin: 0 -2rem;
-  position: relative;
-  overflow: hidden;
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,33,71,0.7), rgba(0,33,71,0.7)),
+                url('https://images.unsplash.com/photo-1588072432836-e10032774350');
+    background-size: cover;
+    color: white;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
+.hero h1 {
+    font-size: 45px;
 }
 
-.hero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
+.hero p {
+    font-size: 20px;
 }
 
-.hero__title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  letter-spacing: -0.5px;
+/* PAGE HEADER */
+.page-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #e6f0ff;
 }
 
-.hero__motto {
-  font-size: 1.5rem;
-  font-style: italic;
-  opacity: 0.95;
-  font-weight: 500;
-  letter-spacing: 1px;
+/*SECTIONS*/
+.about-section,
+.experience-section,
+.success-section,
+.contact-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
 }
 
-.hero__motto em {
-  font-weight: 600;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-  padding-bottom: 0.5rem;
-}
-
-/* ========================================
-   ABOUT SECTION
-   ======================================== */
-.about {
-  background-color: var(--gray-light);
-  margin: 0 -2rem;
-  padding: 4rem 2rem;
-}
-
-/* ========================================
-   ACADEMICS SECTION & CARDS
-   ======================================== */
-.academics {
-  padding: 4rem 0;
-}
-
-.academics__grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
+/*CARDS*/
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-  flex: 1 1 300px;
-  max-width: 350px;
-  min-width: 280px;
-  border-top: 4px solid var(--primary-blue);
+    background:beige;
+    padding: 25px;
+    width: 260px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-top-color: var(--primary-light);
+    transform: translateY(-5px);
 }
 
-.card__title {
-  font-size: 1.5rem;
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
-  font-weight: 700;
+/*BUTTON LINKS*/
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #002147;
+    font-weight: bold;
 }
 
-.card__text {
-  color: var(--gray-dark);
-  line-height: 1.7;
-  font-size: 1rem;
-}
 
-/* ========================================
-   FOOTER
-   ======================================== */
-.site-footer {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 2rem;
-  margin-top: 2rem;
-}
-
-.site-footer__text {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
-@media (max-width: 768px) {
-  .site-header__inner {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  
-  .site-title {
-    font-size: 1.25rem;
-    text-align: center;
-  }
-  
-  .site-nav {
+/* MISSION & VISION */
+.mission-vision {
+    display: flex;
     justify-content: center;
-    gap: 0.25rem;
-    width: 100%;
-  }
-  
-  .site-nav__link {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-  }
-  
-  .site-main {
-    padding: 0 1rem;
-  }
-  
-  .hero {
-    padding: 4rem 1rem;
-    margin: 0 -1rem;
-  }
-  
-  .hero__title {
-    font-size: 2rem;
-  }
-  
-  .hero__motto {
-    font-size: 1.125rem;
-  }
-  
-  .section-title {
-    font-size: 1.75rem;
-  }
-  
-  section {
-    padding: 3rem 0;
-  }
-  
-  .about {
-    margin: 0 -1rem;
-    padding: 3rem 1rem;
-  }
-  
-  .academics__grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .card {
-    max-width: 100%;
-    min-width: auto;
-    width: 100%;
-  }
+    gap: 20px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
 }
 
-@media (max-width: 480px) {
-  .hero__title {
-    font-size: 1.5rem;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
-  .card {
-    padding: 1.5rem;
-  }
-  
-  .card__title {
-    font-size: 1.25rem;
-  }
+/* VALUES */
+.values li {
+    background:beige;
+    margin: 10px auto;
+    padding: 12px;
+    width: 220px;
+    border-radius: 6px;
 }
 
-/* ========================================
-   UTILITY CLASSES
-   ======================================== */
-.text-center {
-  text-align: center;
+/* FORM */
+.contact-form input,
+.contact-form textarea {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.mb-1 {
-  margin-bottom: 1rem;
+.contact-form button {
+    padding: 12px;
+    background: #002147;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.mb-2 {
-  margin-bottom: 2rem;
+.contact-form button:hover {
+    background: #004080;
 }
+
+/* FOOTER */
+footer {
+    background: #002147;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+    
